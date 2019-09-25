@@ -1,16 +1,11 @@
 // will be using JSX
 import React from "react";
 // need to configure Enzyme and utilize shallow rendering components and virtual doms
-import Enzyme, { shallow } from "enzyme";
-// utilize the Enzyme adapter for React
-import EnzymeAdapter from "enzyme-adapter-react-16";
-
+import { shallow } from "enzyme";
 // utility function to be used by all test files
 import { findByTestAttr, checkProps } from "../test/testUtils";
 // handing the Congrats component to shallow
 import Congrats from "./Congrats";
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 // dangerous to use this since it doesn't match props in your code
 const defaultProps = { success: false };
