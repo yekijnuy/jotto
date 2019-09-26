@@ -12,6 +12,7 @@ import rootReducer from "../src/reducers";
  * @returns {Store} - Redux store.
  */
 export const storeFactory = initialState => {
+  // create a new store with the app reducers
   return createStore(rootReducer, initialState);
 };
 
