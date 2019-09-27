@@ -15,6 +15,7 @@ describe("getSecretWord action creator", () => {
     const store = storeFactory();
 
     moxios.wait(() => {
+      // the interceptor of the axios request
       const request = moxios.requests.mostRecent();
       request.respondWith({
         status: 200,
@@ -22,7 +23,8 @@ describe("getSecretWord action creator", () => {
       });
     });
 
-    // note we are returning a promise
+    // note we are returning a promise, dispatch the AC
+    // YOU MUST RETURN THE store.dispatch which returns a promise
     return store.dispatch(getSecretWord()).then(() => {
       const newState = store.getState();
       expect(newState.secretWord).toBe(secretWord);
